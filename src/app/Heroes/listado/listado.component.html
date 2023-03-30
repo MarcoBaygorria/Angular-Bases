@@ -1,0 +1,45 @@
+<p>Lista de Heroes de Dota 2</p>
+
+<div *ngIf=" heroeBorrado; else noBorrado">
+    <h3>Heroe Borrado: <small>{{ heroeBorrado }}</small> </h3>
+</div>
+
+<!--Las referencias locas se detectan por su signo de numeral(#) o por el ng-template-->
+<ng-template #noBorrado>
+    <h3>No ha borrado ningun heroe.</h3>
+</ng-template>
+
+<!-- MI EJEMPLO-->
+
+<div *ngIf=" batallasBorradas; else noEliminado">
+    <h3>Batalla Borrada: <small>{{ batallasBorradas }}</small> </h3>
+</div>
+
+<ng-template #noEliminado>
+    <h3>No ha borrado ninguna batalla</h3>    
+</ng-template>
+
+
+
+<button (click)="borrarHeroe()">
+    Borrar
+</button>
+
+<button (click)="borrarBatalla()">
+    Borrarx2
+</button>
+
+<ul>
+    <li *ngFor="let heroe of heroes; let i = index">
+         {{ i+1 }} - {{ heroe }}
+    </li>
+</ul>
+
+<p>Batallas Importantes</p>
+
+<ul>
+    <li *ngFor="let batallas of batallasImportantes; let x = index">
+        {{ x + 1 }} - {{ batallas }}
+    </li>
+</ul>
+
